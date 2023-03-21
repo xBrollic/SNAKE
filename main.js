@@ -9,6 +9,7 @@ const grid = new Grid(0, 0, 15, 15);
 grid.createGrid();
 grid.drawGrid();
 
+
 window.addEventListener("keydown", (e) => {
   sensor(e);
 });
