@@ -4,7 +4,7 @@ class Snake {
   constructor(position, rows, cols) {
     this.position = position;
     this.status = true;
-    this.age = 2;
+    this.age = 3;
     this.rows = rows;
     this.cols = cols;
     this.width = canvas.width / this.rows;
@@ -23,14 +23,14 @@ class Snake {
     }
   }
 
-  getPosition(){
+
+  getPosition() {
     usedPositions.push([...this.position]);
   }
 
-  check(){
-    if(usedPositions >= this.age){
+  check() {
+    if (usedPositions.length > this.age) {
       usedPositions.shift();
     }
   }
-
 }
