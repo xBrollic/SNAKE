@@ -26,7 +26,7 @@ class Grid {
           this.width,
           this.height
         );
-        ctx.strokeStyle = 'lightgrey';
+        ctx.strokeStyle = "lightgrey";
         ctx.stroke();
       }
     }
