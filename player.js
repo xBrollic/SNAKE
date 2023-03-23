@@ -4,7 +4,7 @@ class Snake {
   constructor(position, rows, cols) {
     this.position = position;
     this.status = true;
-    this.age = 3;
+    this.age = 1;
     this.rows = rows;
     this.cols = cols;
     this.width = canvas.width / this.rows;
