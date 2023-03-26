@@ -3,11 +3,12 @@ const ctx = canvas.getContext("2d");
 const score = document.getElementById("p1");
 
 let start = [1, 1];
-const fps = 5;
+const fps = 4;
 
 const grid = new Grid(0, 0, 15, 15);
 
 grid.createGrid();
+
 
 window.addEventListener("keydown", (e) => {
   sensor(e);
@@ -17,6 +18,16 @@ const player1 = new Snake(start, 15, 15);
 const food = new Food(15, 15);
 food.randomPos();
 
+function suicide(used,player){
+  for(let i = 0; i < player.age; i++){
+    if(player.position == used[i+1]){
+      window.location.reload();
+    }
+
+  }
+}
+
+
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   player1.draw(ctx);
@@ -25,17 +36,20 @@ function animate() {
   move(start);
   grid.drawGrid();
 
+    suicide(usedPositions,player1)
+
   food.draw(ctx);
   score.innerHTML = "Score: " + `${player1.age}`;
   checker(player1, food);
-  if (
+  /*if (
     player1.position[0] * player1.width > canvas.width ||
     player1.position[1] * player1.height > canvas.height ||
     player1.position[0] < 0 ||
     player1.position[1] < 0
   ) {
     window.location.reload();
-  }
+  }*/
+
 
   //grid.fill("lightblue", start);
 
